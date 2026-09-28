@@ -92,7 +92,9 @@ class So101SingleHanoiGymEnv(MujocoGymEnv):
         self._base_init_pos = self._model.body_pos[self._base_body_id].copy()
         self._base_body_z0 = float(self._base_init_pos[2])
 
-        self._disk_names = ["hanoi_disk_large", "hanoi_disk_medium", "hanoi_disk_small"]
+        # hanoi_disk_xsmall starts off any post, sitting loose on the table, as an
+        # extra block for the arm to pick up and place onto a peg.
+        self._disk_names = ["hanoi_disk_large", "hanoi_disk_medium", "hanoi_disk_small", "hanoi_disk_xsmall"]
         self._disk_size_rank = {"hanoi_disk_large": 3, "hanoi_disk_medium": 2, "hanoi_disk_small": 1}
         self._disk_qpos_adr = {}
         self._disk_qvel_adr = {}
